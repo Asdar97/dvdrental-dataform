@@ -1,0 +1,34 @@
+config { 
+    type: "table",
+    schema: constants.bv_schema,
+    description: "Customer dim table",
+    assertions: {
+        uniqueKey: ["customer_id"],
+        nonNull: ["customer_id"],
+        rowConditions: [
+            'create_date < current_date()'
+        ]
+    }
+}
+
+WITH customer AS (
+
+    SELECT * FROM ${ref("customer")}
+
+),
+
+final AS (
+    SELECT
+        customer_id
+        ,store_id
+        ,first_name
+        ,last_name
+        ,email
+        ,address_id
+        ,activebool
+        ,create_date
+        ,active
+    FROM customer
+)
+
+SELECT * FROM final

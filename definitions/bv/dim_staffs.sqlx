@@ -1,0 +1,30 @@
+config { 
+    type: "table",
+    schema: constants.bv_schema,
+    description: "Staff informations",
+    assertions: {
+        uniqueKey: ["staff_id"],
+        nonNull: ["staff_id"]
+    }
+}
+
+WITH staff AS (
+
+    SELECT * FROM ${ref("staff")}
+
+),
+
+final AS (
+    SELECT
+        staff_id
+        ,first_name
+        ,last_name
+        ,email
+        ,address_id
+        ,active
+        ,username
+        -- ,password
+    FROM staff
+)
+
+SELECT * FROM final

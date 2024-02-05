@@ -1,0 +1,7 @@
+config {
+  type: "declaration",
+  database: "dvd-rental-407008",
+  schema: "raw_dvdrental",
+  name: "inventory",
+  description: "raw inventory table"
+}
