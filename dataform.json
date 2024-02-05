@@ -1,0 +1,8 @@
+{
+  "defaultSchema": "dataform",
+  "assertionSchema": "dataform_assertions",
+  "warehouse": "bigquery",
+  "defaultDatabase": "dvd-rental-407008",
+  "defaultLocation": "asia-southeast1"
+}
+    
